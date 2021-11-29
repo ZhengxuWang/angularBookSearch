@@ -1,0 +1,22 @@
+
+<input matInput type="text" (keyup)="searchBook($event)">
+
+
+<mat-card class="book-card" *ngFor="let book of books" >
+    <button (click)="addWishList(book)">
+        <mat-card-title-group>
+            <mat-card-title>{{book.name}}</mat-card-title>
+            <mat-card-subtitle>{{book.publisher}}, {{book.publishdate}}</mat-card-subtitle>
+            <img mat-card-sm-image src={{book.image}} >
+        </mat-card-title-group>
+        <mat-card-content>
+            {{book.description}}
+        </mat-card-content>
+    </button>
+</mat-card>
+
+
+
+  <ul *ngFor="let book of wishlist">
+      <li>{{book.name}} <button (click)="remove(book)">remove</button></li>
+  </ul>
